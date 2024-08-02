@@ -1,0 +1,128 @@
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Weather App </title>
+        <style>
+
+            html, body {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0px;
+                font-family: 'Courier New', Courier, monospace;
+            }
+
+            body {
+                background: linear-gradient(-45deg, #ac64f4, #dca2f2, #77d5fa, #5cfad8);
+                background-size: 400% 400%;
+                animation: gradient 15s ease infinite;
+                display: flex;
+                justify-content: center; /* Centers horizontally */
+                align-items: center; /* Centers vertically */
+                flex-direction: column; /* Aligns child elements vertically */
+            }
+
+            .selunits {
+                text-align: center;
+            }
+
+            h2, p {
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 50px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+
+            @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            .button {
+            background-color: #d5d8da;
+            color: rgb(1, 8, 20);
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            border-radius:10px;
+            z-index: 0;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            outline: 1px solid;
+            overflow: hidden;
+            }
+
+            button:before {
+                content: '';
+                position: absolute;
+                width: 100px;
+                height: 100%;
+                background-image: linear-gradient(
+                    120deg,
+                    rgba(255,255,255, 0) 30%,
+                    rgba(255,255,255, .8),
+                    rgba(255,255,255, 0) 70%
+                );
+                top: 0;
+                left: -100px;
+                animation: shine 5s infinite linear; /* Animation */
+            }
+
+            .button:hover {
+                background-color: #eef4f9;
+            }
+
+            @keyframes shine {
+                0% {left: -100px}
+                20% {left: 100%}
+                100% {left: 100%}
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+        
+        <form action = '/' method = 'POST'>
+
+            <p> Enter city: <input type="text" name = "city" required> </p> 
+
+            <br>
+
+            <p> Select unit system: </p>
+
+            <div class = "selunits">
+                <select id="units" name="units">
+                    <option value="metric"> Celsius </option>
+                    <option value="imperial"> Fahrenheit </option>
+                </select>
+
+            <br><br><br>
+
+            <button class = "button" type="submit"> <strong> Get weather </strong> </button>
+
+            </div>
+
+        </form>
+        
+    </body>
+
+</html>
